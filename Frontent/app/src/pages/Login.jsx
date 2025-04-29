@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Send POST request to the /login endpoint
-      const response = await axios.post('/login', formData);
+      const response = await axios.post('https://internship-project-1-ahe5.onrender.com/login/', formData);
       console.log('Login successful:', response.data);
 
       // Save the token to localStorage

@@ -36,7 +36,7 @@ const MainPage = ({ userEmail }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/users/me/`, {
+        const response = await axios.get(`https://internship-project-1-ahe5.onrender.com/users/me/`, {
           params: { email: userEmail }
         });
         setUserName(`₹{response.data.first_name} ₹{response.data.last_name}`);
@@ -84,7 +84,7 @@ const MainPage = ({ userEmail }) => {
   const fetchTransactions = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8000/transactions/`, {
+      const response = await axios.get(`https://internship-project-1-ahe5.onrender.com/transactions/`, {
         params: { email: userEmail }
       });
       const filtered = filterTransactions(response.data, timeRange);
@@ -100,7 +100,7 @@ const MainPage = ({ userEmail }) => {
   // Fetch monthly expenses
   const fetchMonthlyExpenses = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/transactions/monthly-expenses`, {
+      const response = await axios.get(`https://internship-project-1-ahe5.onrender.com/transactions/monthly-expenses`, {
         params: { email: userEmail }
       });
       setMonthlyExpenses(response.data);
@@ -113,7 +113,7 @@ const MainPage = ({ userEmail }) => {
   const handleCreateTransaction = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8000/transactions/`, newTransaction, {
+      await axios.post(`https://internship-project-1-ahe5.onrender.com/transactions/`, newTransaction, {
         params: { email: userEmail }
       });
       setNewTransaction({ description: '', amount: 0, date: '' });
@@ -127,7 +127,7 @@ const MainPage = ({ userEmail }) => {
   // Delete a transaction
   const handleDeleteTransaction = async (transactionId) => {
     try {
-      await axios.delete(`http://localhost:8000/transactions/₹{transactionId}`, {
+      await axios.delete(`https://internship-project-1-ahe5.onrender.com/transactions/₹{transactionId}`, {
         params: { email: userEmail }
       });
       fetchTransactions();

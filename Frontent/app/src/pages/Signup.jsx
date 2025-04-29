@@ -22,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       // Send POST request to the /signup/ endpoint
-      const response = await axios.post('http://localhost:8000/signup/', formData);
+      const response = await axios.post('https://internship-project-1-ahe5.onrender.com/signup/', formData);
       console.log('Signup successful:', response.data);
 
       // Navigate to the login page after successful signup
